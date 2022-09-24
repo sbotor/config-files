@@ -63,35 +63,43 @@ dotnet_style_prefer_conditional_expression_over_return = true:suggestion
 # Pascal Case
 dotnet_naming_style.pascal_case_style.capitalization = pascal_case
 # Underscored
-dotnet_naming_style.underscored.capitalization = camel_case
-dotnet_naming_style.underscored.required_prefix = _
+dotnet_naming_style.underscored_style.capitalization = camel_case
+dotnet_naming_style.underscored_style.required_prefix = _
 
 ### Symbol groups ###
 # Constant fields
 dotnet_naming_symbols.constant_fields.applicable_kinds  = field
 dotnet_naming_symbols.constant_fields.applicable_accessibilities = *
 dotnet_naming_symbols.constant_fields.required_modifiers = const
-# Defining the 'public_symbols' symbol group
-dotnet_naming_symbols.public_symbols.applicable_kinds = property,method,field,event,delegate
-dotnet_naming_symbols.public_symbols.applicable_accessibilities = public
-dotnet_naming_symbols.public_symbols.required_modifiers = *
+# Defining the 'visible_symbols' symbol group
+dotnet_naming_symbols.visible_symbols.applicable_kinds = property,method,field,event,delegate
+dotnet_naming_symbols.visible_symbols.applicable_accessibilities = public,protected
+dotnet_naming_symbols.visible_symbols.required_modifiers = *
 # Define the 'private_fields' symbol group:
 dotnet_naming_symbols.private_fields.applicable_kinds = field
 dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+# Define the 'private_static_fields' symbol group:
+dotnet_naming_symbols.private_static_fields.applicable_kinds = field
+dotnet_naming_symbols.private_static_fields.applicable_accessibilities = private
+dotnet_naming_symbols.private_static_fields.required_modifiers = static
 
 # Use PascalCase for constant fields
-dotnet_naming_rule.constant_fields_should_be_pascal_case.symbols = constant_fields
-dotnet_naming_rule.constant_fields_should_be_pascal_case.style = pascal_case_style
-dotnet_naming_rule.constant_fields_should_be_pascal_case.severity = error
+dotnet_naming_rule.constant_fields_pascal_case.symbols = constant_fields
+dotnet_naming_rule.constant_fields_pascal_case.style = pascal_case_style
+dotnet_naming_rule.constant_fields_pascal_case.severity = error
 # Public symbols capitalized
-dotnet_naming_rule.public_symbols_should_be_pascal_case.symbols = public_symbols
-dotnet_naming_rule.public_symbols_should_be_pascal_case.style = pascal_case_style
-dotnet_naming_rule.public_symbols_should_be_pascal_case.severity = error
+dotnet_naming_rule.visible_symbols_pascal_case.symbols = visible_symbols
+dotnet_naming_rule.visible_symbols_pascal_case.style = pascal_case_style
+dotnet_naming_rule.visible_symbols_pascal_case.severity = error
 
 # Private fields underscored
 dotnet_naming_rule.private_fields_underscored.symbols = private_fields
-dotnet_naming_rule.private_fields_underscored.style = underscored
+dotnet_naming_rule.private_fields_underscored.style = underscored_style
 dotnet_naming_rule.private_fields_underscored.severity = error
+# Private static fields PascalCase
+dotnet_naming_rule.private_static_fields_pascal_case.symbols = private_static_fields
+dotnet_naming_rule.private_static_fields_pascal_case.style = pascal_case_style
+dotnet_naming_rule.private_static_fields_pascal_case.severity = error
 
 ###############################
 # C# Coding Conventions       #
